@@ -42,6 +42,7 @@ modules:
       - ncdu
       - neovim
       - rclone
+      - rpmreaper
       - smartmontools
       - squashfs-tools
       - tmux
@@ -51,6 +52,7 @@ modules:
       - symlinks
       - tcpdump
       - traceroute
+      - vnstat
       - zstd
       - https://deploy.totallyacdn.com/desktop-apps/2.14.12/windscribe_2.14.12_x86_64_fedora.rpm
       - https://github.com/sigstore/cosign/releases/download/v2.5.0/cosign-2.5.0-1.x86_64.rpm
@@ -66,4 +68,4 @@ modules:
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
-
+  - type: initramfs
