@@ -1,13 +1,11 @@
----
-# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+﻿# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-name: template
-# description will be included in the image's metadata
-description: This is my personal OS image.
+name: wayblue-sway-nvidia-trimmed
+description: Trimmed wayblue, some additions.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 41 # latest is also supported if you want new updates ASAP
+base-image: ghcr.io/wayblueorg/sway-nvidia
+image-version: 42 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -19,26 +17,53 @@ modules:
 
   - type: rpm-ostree
     repos:
-      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      -  https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      -  https://copr.fedorainfracloud.org/coprs/alternateved/eza/repo/fedora-%OS_VERSION%/alternateved-eza-fedora-%OS_VERSION%.repo
+      -  https://copr.fedorainfracloud.org/coprs/codifryed/CoolerControl/repo/fedora-%OS_VERSION%/codifryed-CoolerControl-fedora-%OS_VERSION%.repo
     install:
-      - micro
+      - alacritty
+      - bat
+      - btrfs-assistant
+      - conda
+      - coolercontrol
+      - flatpak-spawn
+      - htop
+      - intel-vaapi-driver
+      - lshw
+      - nvtop
+      - easyeffects
+      - eza
+      - fd-find
+      - fish
+      - gammastep
+      - keychain
+      - liquidctl
+      - lm_sensors
+      - ncdu
+      - neovim
+      - rclone
+      - smartmontools
+      - squashfs-tools
+      - tmux
+      - wireguard-tools
+      - snapper
       - starship
+      - symlinks
+      - tcpdump
+      - traceroute
+      - zstd
+      - https://deploy.totallyacdn.com/desktop-apps/2.14.12/windscribe_2.14.12_x86_64_fedora.rpm
+      - https://github.com/sigstore/cosign/releases/download/v2.5.0/cosign-2.5.0-1.x86_64.rpm
     remove:
-      # example: removing firefox (in favor of the flatpak)
-      # "firefox" is the main package, "firefox-langpacks" is a dependency
       - firefox
       - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+      - toolbox # Will use distrobox
 
-  - type: default-flatpaks
-    notify: true # Send notification after install/uninstall is finished (true/false)
-    system:
-      # If no repo information is specified, Flathub will be used by default
-      install:
-        - org.mozilla.firefox
-        - org.gnome.Loupe
-      remove:
-        - org.gnome.eog
-    user: {} # Also add Flathub user repo, but no user packages
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - JetBrainsMono
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
+
 
