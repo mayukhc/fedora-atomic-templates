@@ -42,7 +42,6 @@ modules:
       - ncdu
       - neovim
       - rclone
-      - rpmreaper
       - smartmontools
       - squashfs-tools
       - tmux
@@ -51,15 +50,85 @@ modules:
       - starship
       - symlinks
       - tcpdump
-      - traceroute
       - vnstat
       - zstd
       - https://deploy.totallyacdn.com/desktop-apps/2.14.12/windscribe_2.14.12_x86_64_fedora.rpm
       - https://github.com/sigstore/cosign/releases/download/v2.5.0/cosign-2.5.0-1.x86_64.rpm
     remove:
+      ## Wayblue
+
+      # sway-modules.yml
+      - foot
+      # sddm-modules.yml
+      - kwallet
+      - pam-kwallet
+      # common-modules.yml
+      - google-noto-emoji-fonts
+      - fontawesome-fonts-all
+      - gnome-themes-extra
+      - gnome-icon-theme
+      - paper-icon-theme
+
+      ## Fedora atomic images
+
+      # Fedora-specific packages 
+      - fedora-bookmarks
+      - fedora-chromium-config
+      - fedora-flathub-remote
+      - fpaste
+
+      # proj-data not sure what is pulling in
+      - proj-data-ar
+      - proj-data-at
+      - proj-data-au
+      - proj-data-be
+      - proj-data-br
+      - proj-data-ca
+      - proj-data-ch
+      - proj-data-cz
+      - proj-data-de
+      - proj-data-dk
+      - proj-data-es
+      - proj-data-eur
+      - proj-data-fi
+      - proj-data-fo
+      - proj-data-fr
+      - proj-data-hu
+      - proj-data-is
+      - proj-data-jp
+      - proj-data-lv
+      - proj-data-mx
+      - proj-data-nc
+      - proj-data-nl
+      - proj-data-no
+      - proj-data-nz
+      - proj-data-pl
+      - proj-data-pt
+      - proj-data-se
+      - proj-data-si
+      - proj-data-sk
+      - proj-data-uk
+      - proj-data-us
+      - proj-data-za
+
+      # Unneeded fonts, ibus engines
+      - default-fonts-cjk-mono
+      - default-fonts-cjk-sans
+      - default-fonts-cjk-serif
+      - ibus-anthy
+      - ibus-anthy-python
+      - ibus-hangul
+      - ibus-libpinyin
+      - ibus-chewing
+
+      # Misc
+      - brltty
+      - orca
       - firefox
-      - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
-      - toolbox # Will use distrobox
+      - firefox-langpacks
+      - toolbox # using distrobox
+      - spice-webdavd
+      - spice-vdagent
 
   - type: fonts
     fonts:
