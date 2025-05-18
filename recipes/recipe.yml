@@ -28,34 +28,37 @@ modules:
       - btrfs-assistant
       - conda
       - coolercontrol
-      - flatpak-spawn
-      - htop
-      - intel-vaapi-driver
-      - lshw
-      - nvtop
       - easyeffects
       - eza
+      - flatpak-spawn
       - fd-find
       - fish
       - gammastep
+      - htop
+      - intel-vaapi-driver
+      - lshw
       - keychain
       - liquidctl
       - lm_sensors
       - ncdu
       - neovim
+      - nvtop
+      - podman-docker
+      - podman-compose
       - rclone
       - smartmontools
       - squashfs-tools
-      - tmux
-      - wireguard-tools
       - snapper
       - starship
       - symlinks
+      - tmux
       - tcpdump
       - vnstat
+      - wireguard-tools
       - zstd
       - https://deploy.totallyacdn.com/desktop-apps/2.14.12/windscribe_2.14.12_x86_64_fedora.rpm
       - https://github.com/sigstore/cosign/releases/download/v2.5.0/cosign-2.5.0-1.x86_64.rpm
+      - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
     remove:
       ## Wayblue
 
