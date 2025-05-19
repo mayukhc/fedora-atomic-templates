@@ -58,7 +58,6 @@ modules:
       - wireguard-tools
       - zstd
       - https://deploy.totallyacdn.com/desktop-apps/2.14.12/windscribe_2.14.12_x86_64_fedora.rpm
-      - https://github.com/sigstore/cosign/releases/download/v2.5.0/cosign-2.5.0-1.x86_64.rpm
       - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
     remove:
       ## Wayblue
@@ -135,6 +134,11 @@ modules:
       - toolbox # using distrobox
       - spice-webdavd
       - spice-vdagent
+
+  - type: akmods
+    base: main # if not specified, classic "main" base is used by default
+    install:
+      - v4l2loopback
 
   - type: fonts
     fonts:
