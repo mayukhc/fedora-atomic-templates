@@ -20,6 +20,7 @@ modules:
       -  https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
       -  https://copr.fedorainfracloud.org/coprs/alternateved/eza/repo/fedora-%OS_VERSION%/alternateved-eza-fedora-%OS_VERSION%.repo
       -  https://copr.fedorainfracloud.org/coprs/codifryed/CoolerControl/repo/fedora-%OS_VERSION%/codifryed-CoolerControl-fedora-%OS_VERSION%.repo
+      -  https://copr.fedorainfracloud.org/coprs/zeno/scrcpy/repo/fedora-%OS_VERSION%/zeno-scrcpy-fedora-%OS_VERSION%.repo
     optfix:
       - windscribe
       - Filen
@@ -47,6 +48,7 @@ modules:
       - podman-docker
       - podman-compose
       - rclone
+      - scrcpy # Interface with android over adb. 
       - smartmontools
       - squashfs-tools
       - snapper
@@ -54,6 +56,7 @@ modules:
       - symlinks
       - tmux
       - tcpdump
+      - v4l2loopback
       - vnstat
       - wireguard-tools
       - zstd
@@ -135,10 +138,9 @@ modules:
       - spice-webdavd
       - spice-vdagent
 
-  - type: akmods
-    base: main # if not specified, classic "main" base is used by default
-    install:
-      - v4l2loopback
+#  - type: akmods
+#    install: # Can't find ublue-os/akmods-extra:main-42
+#      - v4l2loopback
 
   - type: fonts
     fonts:
