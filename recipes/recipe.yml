@@ -57,6 +57,7 @@ modules:
       - symlinks
       - tmux
       - tcpdump
+      - v4l2loopback
       - vnstat
       - wireguard-tools
       - zstd
