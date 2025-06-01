@@ -1,11 +1,9 @@
-# BlueBuild Template &nbsp; [![bluebuild build badge](https://github.com/blue-build/template/actions/workflows/build.yml/badge.svg)](https://github.com/blue-build/template/actions/workflows/build.yml)
-
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
-
+# Build Status &nbsp; [![Build Badge](https://github.com/mayukhc/fedora-atomic-templates/actions/workflows/build.yml/badge.svg)](https://github.com/mayukhc/fedora-atomic-templates/actions/workflows/build.yml)
+ 
 ## AIM
 
 1. Sway atomic with proprietary nvidia drivers. Since Ublue-os/main has moved to nvidia-open, base image is wayblueos/sway-nvidia.
-2. Fully setup personal system, so includes flatpak, distroboxes and dotfiles - basically everything other than personal data and keys.
+2. Fully setup personal system, so include flatpak, distroboxes and dotfiles - basically everything other than personal data and keys.
 3. Latest fedora version, weekly/bi-weekly update. 
 4. Easy install and easy maintain. 
 
@@ -18,7 +16,7 @@ To rebase an existing atomic Fedora installation to the latest build:
 
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/blue-build/template:latest
+  rpm-ostree rebase ostree-unverified-registry:ghcr.io/mayukhc/wayblue-sway-nvidia-trimmed:latest
   ```
 - Reboot to complete the rebase:
   ```
@@ -26,6 +24,6 @@ To rebase an existing atomic Fedora installation to the latest build:
   ```
 - Then rebase to the signed image, like so:
   ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/blue-build/template:latest
+  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/mayukhc/wayblue-sway-nvidia-trimmed:latest
   ```
 - Reboot again to complete.
