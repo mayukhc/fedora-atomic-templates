@@ -14,87 +14,92 @@ modules:
       - source: system
         destination: /
 
-  - type: rpm-ostree
+  - type: dnf
     repos:
-      -  https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
-      -  https://copr.fedorainfracloud.org/coprs/alternateved/eza/repo/fedora-%OS_VERSION%/alternateved-eza-fedora-%OS_VERSION%.repo
-      -  https://copr.fedorainfracloud.org/coprs/codifryed/CoolerControl/repo/fedora-%OS_VERSION%/codifryed-CoolerControl-fedora-%OS_VERSION%.repo
-      -  https://copr.fedorainfracloud.org/coprs/zeno/scrcpy/repo/fedora-%OS_VERSION%/zeno-scrcpy-fedora-%OS_VERSION%.repo
+      copr:
+        - atim/starship
+        - alternateved/eza
+        - codifryed/CoolerControl 
+        - zeno/scrcpy 
     optfix:
       - windscribe
       - Filen
     install:
-      - alacritty
-      - android-tools
-      - bat
-      - bluez-tools
-      - btrfs-assistant
-      - conda
-      - coolercontrol
-      - easyeffects
-      - eza
-      - flatpak-spawn
-      - fd-find
-      - fish
-      - fuse
-      - fzf
-      - gammastep
-      - htop
-      - lshw
-      - keychain
-      - liquidctl
-      - lm_sensors
-      - ncdu
-      - neovim
-      - nvtop
-      - podman-docker
-      - podman-compose
-      - rclone
-      - scrcpy # Interface with android over adb. 
-      - smartmontools
-      - snapper
-      - starship
-      - symlinks
-      - tmux
-      # v4l2loopback
-      - vnstat
-      - wireguard-tools
-      - zstd
-      - https://deploy.totallyacdn.com/desktop-apps/2.14.12/windscribe_2.14.12_x86_64_fedora.rpm
-      - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
+      packages:
+          - alacritty
+          - android-tools
+          - bat
+          - bluez-tools
+          - btrfs-assistant
+          - conda
+          - coolercontrol
+          - easyeffects
+          - eza
+          - flatpak-spawn
+          - fd-find
+          - fish
+          - fuse
+          - fzf
+          - gammastep
+          - htop
+          - lshw
+          - keychain
+          - liquidctl
+          - lm_sensors
+          - ncdu
+          - neovim
+          - nvtop
+          - podman-docker
+          - podman-compose
+          - rclone
+          - scrcpy # Interface with android over adb. 
+          - smartmontools
+          - snapper
+          - starship
+          - symlinks
+          - tmux
+          # v4l2loopback
+          - vnstat
+          - wireguard-tools
+          - zstd
+          - https://deploy.totallyacdn.com/desktop-apps/2.14.12/windscribe_2.14.12_x86_64_fedora.rpm
+          - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
     remove:
-      # Fedora-specific packages 
-      - fedora-bookmarks
-      - fpaste
+      auto-remove: true
+      packages:
+          # Fedora-specific packages 
+          - fedora-bookmarks
+          - fpaste
 
-      # Unneeded fonts, ibus engines
-      - default-fonts-cjk-mono
-      - default-fonts-cjk-sans
-      - default-fonts-cjk-serif
-      - google-noto-fonts-all
-      - ibus-anthy
-      - ibus-anthy-python
-      - ibus-hangul
-      - ibus-libpinyin
-      - ibus-chewing
+          # Unneeded fonts, ibus engines
+          - default-fonts-cjk-mono
+          - default-fonts-cjk-sans
+          - default-fonts-cjk-serif
+          - google-noto-fonts-all
+          - ibus-anthy
+          - ibus-anthy-python
+          - ibus-hangul
+          - ibus-libpinyin
+          - ibus-chewing
 
-      # Misc
-      - brltty
-      - foot
-      - gnome-themes-extra
-      - orca
-      - toolbox # using distrobox
-      - spice-webdavd
-      - spice-vdagent
+          # Misc
+          - brltty
+          - foot
+          - gnome-themes-extra
+          - orca
+          - toolbox # using distrobox
+          - spice-webdavd
+          - spice-vdagent
 
-      # secureblue specific
-      # trivalent
+          # secureblue specific
+          # trivalent
 
-  - type: rpm-ostree
+  - type: dnf
     install:
-      # Installing in separate module to avoid blocking google-noto-fonts-all removal. 
-      - google-noto-sans-bengali-vf-fonts # Variable fonts for bangla
-      - google-noto-serif-bengali-vf-fonts
+      packages:
+          # Installing in separate module to avoid blocking google-noto-fonts-all removal. 
+          - google-noto-sans-bengali-vf-fonts # Variable fonts for bangla
+          - google-noto-serif-bengali-vf-fonts
 
 #  - type: akmods
 #   install:
