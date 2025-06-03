@@ -75,7 +75,7 @@ modules:
           - default-fonts-cjk-mono
           - default-fonts-cjk-sans
           - default-fonts-cjk-serif
-          - google-noto-fonts-all
+          - google-noto-fonts
           - ibus-anthy
           - ibus-anthy-python
           - ibus-hangul
