@@ -45,12 +45,14 @@ modules:
         - keychain
         - liquidctl
         - lm_sensors
+        - lsp-plugins-lv2 # Linux Studio Plugins for Easyeffects (peq etc)
         - ncdu
         - neovim
         - nvtop
         - podman-docker
         - podman-compose
         - rclone
+        - ripgrep
         - scrcpy # Interface with android over adb. 
         - smartmontools
         - squashfs-tools
