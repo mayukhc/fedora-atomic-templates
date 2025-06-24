@@ -33,6 +33,7 @@ modules:
         - btrfs-assistant
         - conda
         - coolercontrol
+        - coolercontrol-liqctld
         - easyeffects
         - eza
         - flatpak-spawn
