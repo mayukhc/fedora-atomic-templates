@@ -66,7 +66,7 @@ modules:
         - vnstat
         - wireguard-tools
         - zstd
-        - https://deploy.totallyacdn.com/desktop-apps/2.14.12/windscribe_2.14.12_x86_64_fedora.rpm
+        - https://deploy.totallyacdn.com/desktop-apps/2.15.8/windscribe_2.15.8_amd64_fedora.rpm
         - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
     remove:
       auto-remove: true
