@@ -44,6 +44,7 @@ modules:
         - intel-vaapi-driver
         - lshw
         - keychain
+        - libva-utils
         - liquidctl
         - lm_sensors
         - lsp-plugins-lv2 # Linux Studio Plugins for Easyeffects (peq etc)
