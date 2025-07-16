@@ -25,6 +25,7 @@ modules:
     optfix:
       - windscribe
       - Filen
+      - vivaldi
     install:
       install-weak-deps: false
       packages:
@@ -64,6 +65,7 @@ modules:
         - tmux
         - tcpdump
         - v4l2loopback
+        - vivaldi-stable # HW Video decoding not working on flatpak.
         - vnstat
         - wireguard-tools
         - zstd
