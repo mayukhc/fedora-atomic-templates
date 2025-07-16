@@ -22,9 +22,12 @@ modules:
         - alternateved/eza
         - codifryed/CoolerControl 
         - zeno/scrcpy 
+      files:
+        - https://repo.vivaldi.com/archive/vivaldi-fedora.repo
     optfix:
       - windscribe
       - Filen
+      - vivaldi
     install:
       install-weak-deps: false
       packages:
@@ -64,6 +67,7 @@ modules:
         - tmux
         - tcpdump
         - v4l2loopback
+        - vivaldi-stable # HW Video decoding not working on flatpak.
         - vnstat
         - wireguard-tools
         - zstd
