@@ -41,7 +41,5 @@ jobs:
 
           # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: true
-          # Disabled due to memory bug, causing hardened malloc to fail - https://github.com/bootc-dev/bootc/issues/1077
           rechunk: true
-          # See https://github.com/containers/buildah/issues/4613
-          build_opts: --compression-format zstd # --build-driver buildah --force-compression true 
+          build_opts: --compression-format zstd --build-driver buildah
