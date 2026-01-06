@@ -5,7 +5,7 @@ description: Trimmed wayblue, some additions.
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/wayblueorg/sway-nvidia
-image-version: 43 # latest is also supported if you want new updates ASAP
+image-version: 43 
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -63,7 +63,7 @@ modules:
         - tcpdump
         - vnstat
         - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
-        - https://deploy.totallyacdn.com/desktop-apps/2.18.8/windscribe_2.18.8_amd64_fedora.rpm
+        - https://deploy.totallyacdn.com/desktop-apps/2.19.7/windscribe_2.19.7_amd64_fedora.rpm
     remove:
       auto-remove: true
       packages:
