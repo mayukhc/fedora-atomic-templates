@@ -63,7 +63,7 @@ modules:
         - tcpdump
         - vnstat
         - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
-        - https://deploy.totallyacdn.com/desktop-apps/2.19.7/windscribe_2.19.7_amd64_fedora.rpm
+        - https://deploy.totallyacdn.com/desktop-apps/2.21.7/windscribe_2.21.7_amd64_fedora.rpm
     remove:
       auto-remove: true
       packages:
