@@ -41,6 +41,7 @@ modules:
         - intel-vaapi-driver
         - lshw
         - keychain
+        - langpacks-bn # EBngali fornt _ locale + IM
         - libratbag-ratbagd # View, cotrol wireless mouse. 
         - libva-utils
         - liquidctl
