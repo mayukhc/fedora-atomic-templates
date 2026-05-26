@@ -28,6 +28,7 @@ jobs:
         recipe:
           # !! Add your recipes here
           - recipe-wayblue-sway-nvidia-closed.yml
+          - recipe-wayblue-hyprland-nvidia-closed.yml
           # - recipe-secureblue-sway-nvidia-closed.yml
     steps:
       # the build is fully handled by the reusable github action

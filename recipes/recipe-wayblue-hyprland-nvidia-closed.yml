@@ -1,0 +1,153 @@
+﻿# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: wayblue-hyprland-nvidia-trimmed
+description: Trimmed wayblue, some additions.
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/wayblueorg/hyprland-nvidia
+image-version: latest
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
+  - type: dnf
+    repos:
+      copr:
+        - atim/starship
+        - alternateved/eza
+        - codifryed/CoolerControl 
+        - zeno/scrcpy 
+    install:
+      install-weak-deps: false
+      packages:
+        - alacritty
+        - bat
+        - btrfs-assistant
+        - conda
+        - coolercontrol
+        - coolercontrol-liqctld
+        - easyeffects
+        - eza
+        - flatpak-spawn
+        - fd-find
+        - fish
+        - gammastep
+        - htop
+        - intel-vaapi-driver
+        - lshw
+        - keychain
+        - langpacks-bn # EBngali fornt _ locale + IM
+        - libratbag-ratbagd # View, cotrol wireless mouse. 
+        - libva-utils
+        - liquidctl
+        - lm_sensors
+        - lsp-plugins-lv2 # Linux Studio Plugins for Easyeffects (peq etc)
+        - ncdu
+        - neovim
+        - nvtop
+        - podman-docker
+        - podman-compose
+        - rclone
+        - ripgrep
+        - scrcpy # Interface with android over adb. 
+        - smartmontools
+        - squashfs-tools
+        - snapper
+        - starship
+        - symlinks
+        - tmux
+        - tcpdump
+        - vnstat
+        - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
+        - https://deploy.totallyacdn.com/desktop-apps/2.21.7/windscribe_2.21.7_amd64_fedora.rpm
+    remove:
+      auto-remove: true
+      packages:
+        ## Wayblue
+  
+        # hyprland-modules.yml
+        - kitty
+        # sddm-modules.yml
+        - kwallet
+        - pam-kwallet
+        # common-modules.yml
+        - google-noto-emoji-fonts
+        - fontawesome-fonts-all
+        - gnome-themes-extra
+        - gnome-icon-theme
+        - paper-icon-theme
+  
+        ## Fedora atomic images
+  
+        # Fedora-specific packages 
+        - fedora-bookmarks
+        - fedora-chromium-config
+        - fedora-flathub-remote
+        - fpaste
+  
+        # proj-data not sure what is pulling in
+        - proj-data-ar
+        - proj-data-at
+        - proj-data-au
+        - proj-data-be
+        - proj-data-br
+        - proj-data-ca
+        - proj-data-ch
+        - proj-data-cz
+        - proj-data-de
+        - proj-data-dk
+        - proj-data-es
+        - proj-data-eur
+        - proj-data-fi
+        - proj-data-fo
+        - proj-data-fr
+        - proj-data-hu
+        - proj-data-is
+        - proj-data-jp
+        - proj-data-lv
+        - proj-data-mx
+        - proj-data-nc
+        - proj-data-nl
+        - proj-data-no
+        - proj-data-nz
+        - proj-data-pl
+        - proj-data-pt
+        - proj-data-se
+        - proj-data-si
+        - proj-data-sk
+        - proj-data-uk
+        - proj-data-us
+        - proj-data-za
+  
+        # Unneeded fonts, ibus engines
+        - default-fonts-cjk-mono
+        - default-fonts-cjk-sans
+        - default-fonts-cjk-serif
+        - ibus-anthy
+        - ibus-anthy-python
+        - ibus-hangul
+        - ibus-libpinyin
+        - ibus-chewing
+  
+        # Misc
+        - brltty
+        - orca
+        - firefox
+        - firefox-langpacks
+        - toolbox # using distrobox
+        - spice-webdavd
+        - spice-vdagent
+
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - JetBrainsMono
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+
+  - type: initramfs
