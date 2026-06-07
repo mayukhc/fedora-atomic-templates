@@ -22,6 +22,8 @@ modules:
         - alternateved/eza
         - codifryed/CoolerControl 
         - zeno/scrcpy 
+      files:
+        - https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo 
     install:
       install-weak-deps: false
       packages:
@@ -38,6 +40,7 @@ modules:
         - fish
         - gammastep
         - htop
+        - hyprlauncher
         - intel-vaapi-driver
         - lshw
         - keychain
@@ -49,6 +52,7 @@ modules:
         - lsp-plugins-lv2 # Linux Studio Plugins for Easyeffects (peq etc)
         - ncdu
         - neovim
+        - nvidia-container-toolkit 
         - nvtop
         - podman-docker
         - podman-compose
@@ -147,6 +151,12 @@ modules:
     fonts:
       nerd-fonts:
         - JetBrainsMono
+
+  - type: systemd 
+    system:
+      enabled:
+        - nvidia-cdi-refresh 
+
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
