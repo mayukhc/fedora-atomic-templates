@@ -5,7 +5,7 @@ description: Trimmed wayblue, some additions.
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/wayblueorg/hyprland-nvidia
-image-version: latest
+image-version: 44
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -40,11 +40,19 @@ modules:
         - fish
         - gammastep
         - htop
+
+        # Hyprland 
         - hyprlauncher
+        - hyprlauncher 
+        - hyprpolkitagent 
+        - hyprpwcenter
+        - hyprshutdown
+        - hyprsunset
+
         - intel-vaapi-driver
         - lshw
         - keychain
-        - langpacks-bn # EBngali fornt _ locale + IM
+        - langpacks-bn # Bengali fonts + locale + IM
         - libratbag-ratbagd # View, cotrol wireless mouse. 
         - libva-utils
         - liquidctl
@@ -68,7 +76,7 @@ modules:
         - tcpdump
         - vnstat
         - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
-        - https://deploy.totallyacdn.com/desktop-apps/2.21.7/windscribe_2.21.7_amd64_fedora.rpm
+        - https://deploy.totallyacdn.com/desktop-apps/2.22.10/windscribe_2.22.10_amd64_fedora.rpm
     remove:
       auto-remove: true
       packages:
@@ -82,7 +90,6 @@ modules:
         # common-modules.yml
         - google-noto-emoji-fonts
         - fontawesome-fonts-all
-        - gnome-themes-extra
         - gnome-icon-theme
         - paper-icon-theme
   
@@ -93,40 +100,6 @@ modules:
         - fedora-chromium-config
         - fedora-flathub-remote
         - fpaste
-  
-        # proj-data not sure what is pulling in
-        - proj-data-ar
-        - proj-data-at
-        - proj-data-au
-        - proj-data-be
-        - proj-data-br
-        - proj-data-ca
-        - proj-data-ch
-        - proj-data-cz
-        - proj-data-de
-        - proj-data-dk
-        - proj-data-es
-        - proj-data-eur
-        - proj-data-fi
-        - proj-data-fo
-        - proj-data-fr
-        - proj-data-hu
-        - proj-data-is
-        - proj-data-jp
-        - proj-data-lv
-        - proj-data-mx
-        - proj-data-nc
-        - proj-data-nl
-        - proj-data-no
-        - proj-data-nz
-        - proj-data-pl
-        - proj-data-pt
-        - proj-data-se
-        - proj-data-si
-        - proj-data-sk
-        - proj-data-uk
-        - proj-data-us
-        - proj-data-za
   
         # Unneeded fonts, ibus engines
         - default-fonts-cjk-mono
