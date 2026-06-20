@@ -38,20 +38,20 @@ modules:
         - flatpak-spawn
         - fd-find
         - fish
-        - gammastep
         - htop
 
         # Hyprland 
         - hyprlauncher
-        - hyprlauncher 
         - hyprpolkitagent 
         - hyprpwcenter
         - hyprshutdown
         - hyprsunset
+        - hyprsysteminfo
 
         - intel-vaapi-driver
         - lshw
         - keychain
+        - keepassxc 
         - langpacks-bn # Bengali fonts + locale + IM
         - libratbag-ratbagd # View, cotrol wireless mouse. 
         - libva-utils
@@ -62,8 +62,10 @@ modules:
         - neovim
         - nvidia-container-toolkit 
         - nvtop
+        - pinentry-qt6
         - podman-docker
         - podman-compose
+        - qt6-qtvirtualkeyboard # For SDDM theme hypr-sddm
         - rclone
         - ripgrep
         - scrcpy # Interface with android over adb. 
@@ -84,14 +86,14 @@ modules:
   
         # hyprland-modules.yml
         - kitty
+
         # sddm-modules.yml
         - kwallet
         - pam-kwallet
+
         # common-modules.yml
-        - google-noto-emoji-fonts
-        - fontawesome-fonts-all
-        - gnome-icon-theme
-        - paper-icon-theme
+        - rofi-wayland
+        - wlsunset #Not supported in hyprland
   
         ## Fedora atomic images
   
