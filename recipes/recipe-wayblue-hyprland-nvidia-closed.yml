@@ -22,6 +22,7 @@ modules:
         - alternateved/eza
         - codifryed/CoolerControl 
         - zeno/scrcpy 
+        - lihaohong/yazi
       files:
         - https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo 
     install:
@@ -37,6 +38,7 @@ modules:
         - eza
         - flatpak-spawn
         - fd-find
+        - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
         - fish
         - htop
 
@@ -77,8 +79,8 @@ modules:
         - tmux
         - tcpdump
         - vnstat
-        - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
         - https://deploy.totallyacdn.com/desktop-apps/2.22.10/windscribe_2.22.10_amd64_fedora.rpm
+        - yazi # fast TUI
     remove:
       auto-remove: true
       packages:
