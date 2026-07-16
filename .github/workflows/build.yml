@@ -2,7 +2,7 @@ name: bluebuild
 on:
   schedule:
     - cron:
-        "00 06 * * TUE,FRI" # build at 06:00 UTC twice every week
+        "00 06 * * *" # build at 06:00 UTC twice every week
         # (20 minutes after last ublue images start building)
   push:
     paths-ignore: # don't rebuild if only documentation has changed
@@ -26,12 +26,10 @@ jobs:
       fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
         recipe:
-          # !! Add your recipes here
           - recipe-wayblue-sway-nvidia-closed.yml
           - recipe-wayblue-hyprland-nvidia-closed.yml
           # - recipe-secureblue-sway-nvidia-closed.yml
     steps:
-      # the build is fully handled by the reusable github action
       - name: Build Custom Image
         uses: blue-build/github-action@v1.11
         with:
