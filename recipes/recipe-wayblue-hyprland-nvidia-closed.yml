@@ -35,6 +35,7 @@ modules:
         - coolercontrol
         - coolercontrol-liqctld
         - easyeffects
+        - drm_info
         - eza
         - flatpak-spawn
         - fd-find
@@ -78,6 +79,7 @@ modules:
         - symlinks
         - tmux
         - tcpdump
+        - v4l-utils # Edid-decode
         - vnstat
         - https://deploy.totallyacdn.com/desktop-apps/2.22.10/windscribe_2.22.10_amd64_fedora.rpm
         - yazi # fast TUI
