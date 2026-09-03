@@ -81,7 +81,7 @@ modules:
         - tcpdump
         - v4l-utils # Edid-decode
         - vnstat
-        - https://deploy.totallyacdn.com/desktop-apps/2.22.10/windscribe_2.22.10_amd64_fedora.rpm
+        - https://deploy.totallyacdn.com/desktop-apps/2.24.12/windscribe_2.24.12_amd64_fedora.rpm
         - yazi # fast TUI
     remove:
       auto-remove: true
@@ -135,7 +135,6 @@ modules:
     system:
       enabled:
         - nvidia-cdi-refresh 
-
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 

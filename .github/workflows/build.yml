@@ -2,7 +2,7 @@ name: bluebuild
 on:
   schedule:
     - cron:
-        "00 07 * * 5" # build at 07:00 UTC (80 minutes after last ublue images start building), every Friday, rpm-ostreed timer set at first Saturday of month
+        "00 07 * * 5" # build at 07:00 UTC (120 minutes after wayblue images start building), every Friday, rpm-ostreed timer on pc set at first Saturday of month
   push:
     paths-ignore: # don't rebuild if only documentation has changed
       - "**.md"
