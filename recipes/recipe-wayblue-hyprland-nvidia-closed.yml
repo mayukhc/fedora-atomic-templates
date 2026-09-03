@@ -15,6 +15,11 @@ modules:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
+  - type: script
+    snippets:
+      - "rpm -e --nopostun --nodeps docbook-dtds" # Package downgraded to weak dependancy in firefox-154.0.5/downstream, postun sript failing and blocking build, remove in script.
+      - "rpm -e --nopostun --nodeps qt" # Similar issue
+
   - type: dnf
     repos:
       copr:
@@ -83,6 +88,7 @@ modules:
         - vnstat
         - https://deploy.totallyacdn.com/desktop-apps/2.24.12/windscribe_2.24.12_amd64_fedora.rpm
         - yazi # fast TUI
+    
     remove:
       auto-remove: true
       packages:
