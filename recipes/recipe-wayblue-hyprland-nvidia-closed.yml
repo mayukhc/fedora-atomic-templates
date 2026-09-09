@@ -17,7 +17,7 @@ modules:
 
   - type: script
     snippets:
-      - "rpm -e --nopostun --nodeps docbook-dtds" # Package downgraded to weak dependancy in firefox-154.0.5/downstream, postun sript failing and blocking build, remove in script.
+      - "rpm -e --nopostun --nodeps docbook-dtds" # Package downgraded to weak dependancy in firefox-154.0.5/downstream/wayblue-hyprland, postun sript failing and blocking build.
       - "rpm -e --nopostun --nodeps qt" # Similar issue
 
   - type: dnf
@@ -46,7 +46,7 @@ modules:
         - fd-find
         - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
         - fish
-        - htop
+        - btop
 
         # Hyprland 
         - hyprlauncher
@@ -87,7 +87,7 @@ modules:
         - v4l-utils # Edid-decode
         - vnstat
         - https://deploy.totallyacdn.com/desktop-apps/2.24.12/windscribe_2.24.12_amd64_fedora.rpm
-        - yazi # fast TUI
+        - yazi # fast TUI file explorer
     
     remove:
       auto-remove: true
