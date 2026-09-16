@@ -35,18 +35,17 @@ modules:
       packages:
         - alacritty
         - bat
+        - btop
         - btrfs-assistant
         - conda
-        - coolercontrol
-        - coolercontrol-liqctld
-        - easyeffects
+        - coolercontrold # Daemon plus web UI for thermal management across all devices
         - drm_info
         - eza
         - flatpak-spawn
         - fd-find
         - https://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
         - fish
-        - btop
+        - greetd
 
         # Hyprland 
         - hyprlauncher
@@ -55,17 +54,17 @@ modules:
         - hyprshutdown
         - hyprsunset
         - hyprsysteminfo
+        - hyprqt6engine
 
         - intel-vaapi-driver
-        - lshw
+        - lshw # System info utility
         - keychain
         - keepassxc 
         - langpacks-bn # Bengali fonts + locale + IM
         - libratbag-ratbagd # View, cotrol wireless mouse. 
         - libva-utils
-        - liquidctl
+        - liquidctl # Driver for AIO
         - lm_sensors
-        - lsp-plugins-lv2 # Linux Studio Plugins for Easyeffects (peq etc)
         - ncdu
         - neovim
         - nvidia-container-toolkit 
@@ -73,19 +72,15 @@ modules:
         - pinentry-qt6
         - podman-docker
         - podman-compose
-        - qt6-qtvirtualkeyboard # For SDDM theme hypr-sddm
         - rclone
         - ripgrep
         - scrcpy # Interface with android over adb. 
-        - smartmontools
-        - squashfs-tools
+        - smartmontools # SMART utils for disks
         - snapper
         - starship
-        - symlinks
         - tmux
-        - tcpdump
-        - v4l-utils # Edid-decode
-        - vnstat
+        - tuigreet # Console greeter for greetd
+        - v4l-utils # Edid-decode for display
         - https://deploy.totallyacdn.com/desktop-apps/2.24.12/windscribe_2.24.12_amd64_fedora.rpm
         - yazi # fast TUI file explorer
     
@@ -98,6 +93,11 @@ modules:
         - kitty
 
         # sddm-modules.yml
+        - sddm
+        - sddm-themes
+        - qt5-qtgraphicaleffects
+        - qt5-qtquickcontrols2
+        - qt5-qtsvg
         - kwallet
         - pam-kwallet
 
