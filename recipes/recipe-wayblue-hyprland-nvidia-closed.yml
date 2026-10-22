@@ -45,6 +45,7 @@ modules:
         - fd-find
         - fish
         - greetd
+        - gphoto2 # PTP protocol handler to pull photos from older DSLR 
 
         # Hyprland 
         - hyprlauncher
