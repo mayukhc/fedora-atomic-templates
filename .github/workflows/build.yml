@@ -26,6 +26,7 @@ jobs:
       matrix:
         recipe:
           # - recipe-wayblue-sway-nvidia-closed.yml
+          - recipe-wayblue-hyprland-nvidia-open.yml
           - recipe-wayblue-hyprland-nvidia-closed.yml
           # - recipe-secureblue-sway-nvidia-closed.yml
     steps:
