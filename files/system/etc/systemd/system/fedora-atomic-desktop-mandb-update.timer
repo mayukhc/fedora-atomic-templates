@@ -1,0 +1,11 @@
+[Unit]
+Description=Run mandb update on a schedule
+
+[Timer]
+OnCalendar=
+OnCalendar=weekly
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+

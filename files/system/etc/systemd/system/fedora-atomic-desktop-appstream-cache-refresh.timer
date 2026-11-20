@@ -1,0 +1,10 @@
+[Unit]
+Description=Run appstream-cache-refresh on a schedule
+
+[Timer]
+OnCalendar=
+OnCalendar=weekly
+Persistent=false
+
+[Install]
+WantedBy=timers.target

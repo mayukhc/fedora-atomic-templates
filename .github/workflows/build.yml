@@ -26,8 +26,9 @@ jobs:
       matrix:
         recipe:
           # - recipe-wayblue-sway-nvidia-closed.yml
-          - recipe-wayblue-hyprland-nvidia-open.yml
+          # - recipe-wayblue-hyprland-nvidia-open.yml
           - recipe-wayblue-hyprland-nvidia-closed.yml
+          - recipe-i3-nvidia470.yml
           # - recipe-secureblue-sway-nvidia-closed.yml
     steps:
       - name: Build Custom Image

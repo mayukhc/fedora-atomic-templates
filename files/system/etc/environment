@@ -1,0 +1,2 @@
+# https://bbs.archlinux.org/viewtopic.php?id=294177, Fix missing fonts on GTK based apps inside flatpak (mostly easyeffects)
+GSK_RENDERER=gl

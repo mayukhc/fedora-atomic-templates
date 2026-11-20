@@ -1,0 +1,117 @@
+name: fedora-i3-nvidia470
+description: Custom Fedora Atomic for MacBook Pro (base-main + i3 + LightDM + NVIDIA 470xx + Broadcom wl + FaceTimeHD)
+base-image: ghcr.io/ublue-os/base-main
+image-version: 45
+
+modules:
+  # 1. kmods package postun script failing when run as root directly, so install separately without scripts. 
+  - type: script
+    snippets:
+      - dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-45.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-45.noarch.rpm
+      - dnf copr enable -y mulderje/facetimehd-kmod
+      - dnf install -y --setopt=tsflags=noscripts akmod-wl akmod-nvidia-470xx facetimehd-kmod kernel-devel-matched
+      - akmods --force --kernels $(rpm -q --qf '%{VERSION}-%{RELEASE}.%{ARCH}\n' kernel)
+
+  # 2. Enable RPM Fusion (free + nonfree) and Yazi Copr
+  - type: dnf
+    repos:
+      nonfree: rpmfusion
+      copr:
+        - lihaohong/yazi
+    install:
+      install-weak-deps: false
+      packages:
+        # Core Xorg & Desktop Plumbing (required on base-main)
+        - xorg-x11-server-Xorg
+        - xorg-x11-xinit
+        - xorg-x11-drv-libinput
+        - mesa-dri-drivers
+        - dbus-x11
+        - xfce-polkit
+        - pipewire-pulseaudio
+        - wireplumber
+        - xdg-user-dirs
+        - adwaita-icon-theme
+
+        # Legacy NVIDIA 470xx stack
+        - xorg-x11-drv-nvidia-470xx
+        - xorg-x11-drv-nvidia-470xx-cuda
+        - libva-nvidia-driver
+
+        # Broadcom Wi-Fi & FaceTime HD Webcam (firmware)
+        - broadcom-wl
+        - facetimehd-firmware
+
+        # Display manager & i3 X11 environment
+        - lightdm
+        - lightdm-gtk
+        - i3
+        - i3status
+        - picom
+        - py3status
+        - rofi
+        - dunst
+        - feh
+        - redshift
+        - xrandr
+        - xautolock
+        - xsecurelock
+
+        # File Managers (GUI: thunar, pcmanfm | Terminal: yazi, ranger)
+        - thunar
+        - pcmanfm
+        - yazi
+        - ranger
+
+        # Desktop utilities, audio, network & filesystem tools
+        - alacritty
+        - blueman
+        - bolt
+        - gvfs-fuse
+        - gvfs-mtp
+        - network-manager-applet
+        - pavucontrol
+        - snapper
+
+        # Shell, CLI tools & fonts
+        - fish
+        - neovim
+        - bat
+        - fd-find
+        - ncdu
+        - jetbrains-mono-fonts
+
+  # 3. Copy custom system files from files/system/ to /
+  - type: files
+    files:
+      - source: system
+        destination: /
+
+  # 4. Run standalone build scripts from files/scripts/
+  - type: script
+    scripts:
+      - verify-akmods.sh
+      - setup-lightdm-user.sh
+    snippets: 
+      - "authselect disable-feature with-fingerprint || true"
+
+  # 5. Setup Systemd services
+  - type: systemd
+    system:
+      enabled:
+        - lightdm.service
+      masked:
+        - NetworkManager-wait-online.service # Speed up boot
+      disabled:
+        - fedora-atomic-desktop-mandb-update.service # Speed up boot
+        - fedora-atomic-desktop-appstream-cache-refresh.service # Speed up boot
+
+  # 5. Apply kernel arguments cleanly via BlueBuild's kargs module, uses bootc need to check interop with rpm-ostree before setting up
+  #- type: kargs
+  #  kargs:
+  #    - rd.driver.blacklist=nouveau
+  #    - modprobe.blacklist=nouveau
+  #    - nvidia-drm.modeset=1
+
+  # 6. Regenerate initramfs to bake in all kmods, firmware, and early-boot group files
+  - type: initramfs
