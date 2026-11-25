@@ -7,7 +7,7 @@ modules:
   # 1. kmods package postun script failing when run as root directly, so install separately with scripts disabled. 
   - type: script
     snippets:
-      - dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
+      - dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-45.noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-45.noarch.rpm
       - dnf copr enable -y mulderje/facetimehd-kmod
       - dnf install -y --setopt=tsflags=noscripts akmod-wl akmod-nvidia-470xx facetimehd-kmod kernel-devel-matched
       - akmods --force --kernels $(rpm -q --qf '%{VERSION}-%{RELEASE}.%{ARCH}\n' kernel)
@@ -53,7 +53,7 @@ modules:
         - rofi
         - dunst
         - feh
-        - redshift
+        - gammastep
         - xrandr
         - xset
         - xss-lock
@@ -80,6 +80,9 @@ modules:
         - fd-find
         - ncdu
         - jetbrains-mono-fonts
+      
+      exclude:
+        - geoclue2
     
     remove:
         auto-remove: true
